@@ -18,8 +18,12 @@ body {
 .w-7_5 {
     width: 7.5%
 }
+li {
+    text-wrap: wrap;
+    overflow: auto hidden;
+}
 .card {
-    overflow: auto;
+    overflow: hidden auto;
 }
 .card-length {
     height: auto;

@@ -159,6 +159,7 @@ function addLister() {
   li.classList =
     "list-group-item border w-85 bg-white d-flex align-items-center px-3";
   li.innerText = input.value;
+  li.style.textWrap = "wrap"
   input.value = "";
   editBtn.classList = "btn btn-outline-secondary bg-success text-white w-7_5";
   editBtn.innerText = "Edit";
