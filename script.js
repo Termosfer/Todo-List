@@ -133,6 +133,7 @@ button.addEventListener("click", ()=>{
 let body = document.querySelector("body");
 let input = document.querySelector(".form-control");
 let addList = document.querySelector("#button-addon2");
+let removeAll = document.querySelector("#button-addon3");
 let cardBody = document.querySelector(".card-body");
 
 document.addEventListener("keypress", (event) => {
@@ -145,6 +146,10 @@ addList.addEventListener("click", () => {
   addLister();
 });
 
+removeAll.addEventListener("click", () => {
+  cardBody.innerHTML = "";
+});
+
 function addLister() {
   if (input.value === "" || input.value === " ") {
     alert("You have to right something!");
@@ -154,10 +159,13 @@ function addLister() {
   let li = document.createElement("li");
   let editBtn = document.createElement("button");
   let delBtn = document.createElement("button");
-
-  div.classList = "list-group-flush input-group mb-3";
+  let checkbox = document.createElement("input");
+  checkbox.setAttribute("type", "checkbox"); 
+  checkbox.classList = "checkbox"
+  
+  div.classList = "ul list-group-flush input-group mb-3";
   li.classList =
-    "list-group-item border w-85 bg-white d-flex align-items-center px-3";
+    "list-group-item border w-82 bg-white d-flex align-items-center ";
   li.innerText = input.value;
   li.style.textWrap = "wrap"
   input.value = "";
@@ -166,10 +174,19 @@ function addLister() {
   delBtn.classList = "btn btn-outline-secondary bg-primary text-white w-7_5";
   delBtn.innerText = "Delete";
   cardBody.append(div);
-  div.append(li, editBtn, delBtn);
+  div.append(checkbox, li, editBtn, delBtn );
   delBtn.addEventListener("click", () => {
     delBtn.parentElement.remove();
   });
+
+  checkbox.addEventListener("change", () => {
+    if (checkbox.checked) {
+      li.style.textDecoration = "line-through"
+    } else {
+      li.style.textDecoration = "none"
+    }
+  });
+  
   editBtn.addEventListener("click", () => {
     let glass = document.querySelector(".glass");
     let input1 = document.querySelector(".container2 > input");
@@ -189,4 +206,5 @@ function addLister() {
   });
 }
 
+let reo
 // https://prod.liveshare.vsengsaas.visualstudio.com/join?E81998C680EAEDE4D4FE869116D4CE7C89EF
