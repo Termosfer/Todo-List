@@ -21,7 +21,7 @@ removeAll.addEventListener("click", () => {
 
 function addLister() {
   if (input.value === "" || input.value === " ") {
-    alert("You have to right something!");
+    alert("You have to wright something!");
     return;
   }
   let div = document.createElement("div");
